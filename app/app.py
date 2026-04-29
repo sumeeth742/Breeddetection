@@ -235,15 +235,7 @@ async def predict(file: UploadFile = File(...)):
     # 🔹 Score
     score = calculate_score(length_cm, height_cm)
 
-    # 🔹 Save to MongoDB
-    record = {
-        "breed": result,
-        "confidence": confidence,
-        "length_cm": length_cm,
-        "height_cm": height_cm,
-        "score": score,
-        "timestamp": datetime.now()
-    }
+    
 
    
 
