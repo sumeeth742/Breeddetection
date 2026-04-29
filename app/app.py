@@ -7,10 +7,6 @@ import base64
 import cv2
 from ultralytics import YOLO
 
-# MongoDB
-from pymongo import MongoClient
-from datetime import datetime
-import os
 
 app = FastAPI()
 
@@ -37,11 +33,6 @@ CM_PER_PIXEL = 0.75   # adjust based on your testing
 # -----------------------------
 # 💾 MongoDB Setup (SECURE)
 # -----------------------------
-MONGO_URL = os.getenv("MONGO_URL")
-
-client = MongoClient(MONGO_URL)
-db = client["animal_db"]
-collection = db["records"]
 
 # -----------------------------
 # 🐄 Detect Largest Animal
@@ -254,11 +245,7 @@ async def predict(file: UploadFile = File(...)):
         "timestamp": datetime.now()
     }
 
-    try:
-        collection.insert_one(record)
-        print("Saved to MongoDB")
-    except:
-        print("MongoDB connection failed")
+   
 
     # 🔹 Image display
     image_base64 = base64.b64encode(contents).decode("utf-8")

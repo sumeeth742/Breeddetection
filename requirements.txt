@@ -4,5 +4,4 @@ numpy==1.23.5
 pillow
 opencv-python-headless
 ultralytics
-pymongo
 tflite-runtime
