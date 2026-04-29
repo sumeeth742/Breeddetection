@@ -1,0 +1,7 @@
+.venv/
+myenv/
+__pycache__/
+*.pyc
+dataset/
+training/
+yolov8n.pt
