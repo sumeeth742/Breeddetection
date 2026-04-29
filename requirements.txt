@@ -5,3 +5,4 @@ pillow
 opencv-python-headless
 ultralytics
 tflite-runtime
+python-multipart
