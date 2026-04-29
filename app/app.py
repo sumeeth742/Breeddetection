@@ -2,7 +2,6 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import HTMLResponse
 from PIL import Image
 import numpy as np
-import tensorflow as tf
 import io
 import base64
 import cv2
@@ -18,7 +17,9 @@ app = FastAPI()
 # -----------------------------
 # 🧠 Load AI Models
 # -----------------------------
-interpreter = tf.lite.Interpreter(model_path="model/breed_model.tflite")
+from tflite_runtime.interpreter import Interpreter
+
+interpreter = Interpreter(model_path="model/breed_model.tflite")
 interpreter.allocate_tensors()
 
 input_details = interpreter.get_input_details()
